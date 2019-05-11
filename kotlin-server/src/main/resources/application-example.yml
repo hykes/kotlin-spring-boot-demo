@@ -1,0 +1,25 @@
+spring.profiles.active: dev
+
+server:
+  port: 8002
+
+spring:
+  dubbo:
+    application:
+      name: kotlin-server
+    registry:
+      address: zookeeper://localhost:2181
+    scan: com.github.hykes.demo.service.impl
+    module: provider
+    protocol:
+      name: dubbo
+      port: 20880
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hykes?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: anywhere
+
+mybatis:
+  mapperLocations: classpath:mappers/*Mapper.xml
+  typeAliasesPackage: com.github.hykes.demo.model
